@@ -210,22 +210,23 @@ h2{letter-spacing:2px;font-size:18px;}
 }
 
 /* ===== PORTRAIT (LEFT) ===== */
+/* FOTO (MAIOR) */
 .portrait-wrap{
-  width:84px;
-  height:84px;
-  border-radius:18px;
+  width:230px;        /* aumentou */
+  height:230px;       /* aumentou */
+  border-radius:26px;
   border:1px solid rgba(0,240,255,0.18);
   overflow:hidden;
   background:rgba(0,0,0,0.25);
-  box-shadow:0 0 22px rgba(0,240,255,0.08);
+  box-shadow:0 0 26px rgba(0,240,255,0.10);
 }
 
 .portrait{
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:0.38;                 /* transparente */
-  filter:grayscale(0.25) contrast(1.05);
+  opacity:0.55;       /* mais visível */
+  filter:grayscale(0.15) contrast(1.15) brightness(0.95);
 }
 
 /* ===== HUD MID (NAME RIGHT) ===== */
@@ -277,4 +278,119 @@ h2{letter-spacing:2px;font-size:18px;}
   border:1px solid rgba(0,240,255,0.25);
   box-shadow:var(--shadow);
   background:#000;
+}
+
+/* ===================== MOBILE / RESPONSIVE ===================== */
+@media (max-width: 980px){
+
+  body{
+    overflow:auto; /* libera scroll no mobile */
+  }
+
+  /* HUD vira topo empilhado */
+  .hud-top{
+    position:relative;
+    flex-wrap:wrap;
+    gap:12px;
+    padding:16px 16px 8px;
+  }
+
+  .hud-left{
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+
+  .hud-mid{
+    width:100%;
+    text-align:center;
+    align-items:center;
+  }
+
+  .hud-right{
+    width:100%;
+    justify-content:center;
+  }
+
+  /* Foto reduz um pouco no mobile pra não dominar */
+  .portrait-wrap{
+    width:120px;
+    height:120px;
+    
+  }
+
+  /* MENU vira barra horizontal rolável */
+  .menu{
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    width:auto;
+    margin:10px 12px 0;
+  }
+
+  .selector{
+    display:none; /* selector do desktop não precisa no mobile */
+  }
+
+  #menuList{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding-bottom:6px;
+    scroll-snap-type:x mandatory;
+  }
+
+  #menuList::-webkit-scrollbar{
+    height:6px;
+  }
+
+  .menu-item{
+    min-width:max-content;
+    scroll-snap-align:start;
+    margin:0;
+    padding:12px 14px;
+    border-radius:14px;
+  }
+
+  .menu-hint{
+    display:none; /* some no mobile */
+  }
+
+  /* Painel vira bloco abaixo */
+  .panel{
+    position:relative;
+    right:auto;
+    top:auto;
+    transform:none;
+    width:auto;
+    margin:12px 12px 24px;
+    max-height:none;
+    overflow:visible;
+  }
+
+  /* Grid da galeria vira 2 colunas */
+  .grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px){
+  /* Grid vira 1 coluna */
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .name.big{
+    font-size:22px;
+    letter-spacing:2px;
+  }
+
+  .role.small{
+    font-size:11px;
+  }
+
+  #volSlider{
+    width:120px;
+  }
 }
