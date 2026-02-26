@@ -1,64 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Germano Rangel | AAA Portfolio</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Germano Rangel | AAA Game Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- PRELOADER -->
-<div id="preloader">
-    <h1>INITIALIZING SYSTEM...</h1>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preload-box">
+      <div class="preload-title">INITIALIZING SYSTEM...</div>
+      <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+      <div class="preload-sub">Pressione qualquer tecla / toque para iniciar áudio</div>
+    </div>
+  </div>
+
+  <!-- FX LAYERS -->
+  <canvas id="particles"></canvas>
+  <div class="background"></div>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+
+  <!-- HUD TOP -->
+  <header class="hud-top">
+  <div class="hud-left">
+    <div class="portrait-wrap">
+      <img class="portrait" src="assets/fotoPessoal.png" alt="Germano Rangel Troian">
+    </div>
+  </div>
+
+  <div class="hud-mid">
+    <div class="tag">AAA PORTFOLIO</div>
+    <div class="name big">GERMANO RANGEL TROIAN</div>
+    <div class="role small">
+      Blender Artist 3D • C++ • Gameplay Programming • Game Design • Indie Dev • UEFN Creator • Unreal Engine
+    </div>
+  </div>
+
+  <div class="hud-right">
+    <button id="muteBtn" class="hud-btn" aria-label="Mute">🔊</button>
+    <div class="vol">
+      <span class="vol-label">VOL</span>
+      <input id="volSlider" type="range" min="0" max="100" value="22"/>
+    </div>
+  </div>
+</header>
+
+  <!-- MENU -->
+  <nav class="menu">
+    <div class="menu-title">MAIN MENU</div>
+
+    <div class="selector" id="selector"></div>
+
+    <ul id="menuList">
+      <li data-target="portfolio" class="menu-item is-active">PORTFÓLIO</li>
+      <li data-target="about" class="menu-item">SOBRE</li>
+      <li data-target="projects" class="menu-item">PROJETOS</li>
+      <li data-target="contact" class="menu-item">CONTATO</li>
+    </ul>
+
+    <div class="menu-hint">
+      ↑↓ navegar • Enter selecionar • Esc fechar • Mouse hover
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="panel">
+
+    <section id="portfolio" class="content is-open">
+      <div class="panel-head">
+        <h2>PORTFÓLIO</h2>
+        <div class="filters">
+          <button class="chip is-on" data-filter="all">ALL</button>
+          <button class="chip" data-filter="hard">HARD SURFACE</button>
+          <button class="chip" data-filter="env">ENVIRONMENTS</button>
+          <button class="chip" data-filter="char">CHARACTERS</button>
+        </div>
+      </div>
+
+      <div class="grid" id="grid">
+
+  <!-- IMAGEM -->
+  <figure class="card" data-cat="hard" data-type="image" data-src="assets/projeto1.jpg" data-title="Hard Surface Prop">
+    <img src="assets/projeto1.jpg" alt="Projetos Blender">
+    <figcaption>
+      <div class="card-title">Hard Surface Prop</div>
+      <div class="card-sub">Blender • PBR</div>
+    </figcaption>
+  </figure>
+
+  <!-- IMAGEM -->
+  <figure class="card" data-cat="env" data-type="image" data-src="assets/projeto2.jpg" data-title="Environment Scene">
+    <img src="assets/projeto2.jpg" alt="Projetos Unreal">
+    <figcaption>
+      <div class="card-title">Environment Scene</div>
+      <div class="card-sub">Lighting • Composition</div>
+    </figcaption>
+  </figure>
+
+  <!-- VÍDEO MP4 -->
+  <figure class="card" data-cat="char" data-type="video" data-src="assets/teste.mp4" data-title="Character Showcase Cinematic">
+    <div class="video-thumb">
+      <video src="assets/showcase1.mp4" muted playsinline preload="metadata"></video>
+      <span class="video-badge">▶ VIDEO</span>
+    </div>
+    <figcaption>
+      <div class="card-title">Character Showcase</div>
+      <div class="card-sub">Unreal Engine • Cinematic</div>
+    </figcaption>
+  </figure>
+
 </div>
 
-<!-- PARTICLES -->
-<canvas id="particles"></canvas>
+      <div class="tip">
+        Dica: clique em um card para abrir em tela cheia.
+      </div>
+    </section>
 
-<!-- BACKGROUND -->
-<div class="background"></div>
+    <section id="about" class="content">
+      <h2>SOBRE</h2>
+      <p>
+        Desenvolvedor de games e artista 3D focado em Unreal Engine, gameplay systems e produção visual realista.
+        Meu foco é entregar assets e experiências com qualidade de estúdio: composição, iluminação, PBR e implementação em engine.
+      </p>
 
-<!-- MENU -->
-<nav class="menu">
-    <h1 class="logo">GERMANO RANGEL</h1>
-    <ul>
-        <li onclick="openSection('portfolio')">▶ PORTFÓLIO</li>
-        <li onclick="openSection('about')">▶ SOBRE</li>
-        <li onclick="openSection('contact')">▶ CONTATO</li>
-    </ul>
-</nav>
+      <div class="stats">
+        <div class="stat"><span class="k">ENGINE</span><span class="v">Unreal</span></div>
+        <div class="stat"><span class="k">3D</span><span class="v">Blender</span></div>
+        <div class="stat"><span class="k">CODE</span><span class="v">C++</span></div>
+      </div>
+    </section>
 
-<!-- CONTENT -->
-<section id="portfolio" class="content">
-    <h2>PORTFÓLIO</h2>
-    <p>Seus renders 3D aqui.</p>
-</section>
+    <section id="projects" class="content">
+      <h2>PROJETOS</h2>
+      <div class="project">
+        <div class="project-title">SWATCombat</div>
+        <div class="project-sub">Combate tático • IA • Sistemas de armas</div>
+      </div>
+      <div class="project">
+        <div class="project-title">UEFN / Islands</div>
+        <div class="project-sub">Criação de experiências online</div>
+      </div>
+    </section>
 
-<section id="about" class="content">
-    <h2>SOBRE</h2>
-    <p>3D Artist & Gameplay Programmer especializado em Unreal Engine.</p>
-</section>
-
-<section id="contact" class="content">
-    <h2>CONTATO</h2>
-    <div class="icon-btns">
-        <a href="https://wa.me/552164757223" target="_blank" class="icon-btn">
-            📲 WHATSAPP
+    <section id="contact" class="content">
+      <h2>CONTATO</h2>
+      <div class="contact-row">
+        <a class="icon-btn" href="https://wa.me/552964757223" target="_blank">
+          <span class="ic">📲</span><span>WHATSAPP</span>
         </a>
-        <a href="mailto:rantro.dev@outlook.com.br" class="icon-btn">
-            ✉ EMAIL
+        <a class="icon-btn" href="mailto:rantro.dev@outlook.com.br">
+          <span class="ic">✉</span><span>EMAIL</span>
         </a>
-    </div>
-</section>
+      </div>
 
-<!-- AUDIO -->
-<audio id="click-sound" src="assets/click.wav"></audio>
-<audio id="hover-sound" src="assets/hover.wav"></audio>
-<audio id="ambient-sound" src="assets/ambient.mp3" preload="auto" loop></audio>
+      <p class="small">
+        Para recrutadores: posso enviar breakdowns, wireframes, testes de gameplay e builds.
+      </p>
+    </section>
 
-<button id="mute-btn">🔊</button>
+  </main>
 
-<script src="script.js"></script>
+  <!-- MODAL -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+    <img id="modalImg" alt="Imagem ampliada"/>
+    <div class="modal-caption" id="modalCap"></div>
+  </div>
+
+  <!-- AUDIO -->
+  <audio id="click-sound" src="assets/click.wav" preload="auto"></audio>
+  <audio id="hover-sound" src="assets/hover.wav" preload="auto"></audio>
+  <audio id="ambient-sound" src="assets/ambient.mp3" preload="auto" loop></audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
