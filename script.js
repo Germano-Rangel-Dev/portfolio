@@ -26,3 +26,9 @@ function openSection(id){
     });
     document.getElementById(id).style.display = "block";
 }
+
+function playClick(){
+    const sound = document.getElementById("click-sound");
+    sound.currentTime = 0;
+    sound.play();
+}

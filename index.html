@@ -12,7 +12,11 @@
     <h1>INITIALIZING SYSTEM...</h1>
 </div>
 
-<div class="background"></div>
+<div class="background">
+     <video autoplay muted loop>
+    <source src="assets/video.mp4" type="video/mp4">
+  </video>
+</div>
 
 <nav class="menu">
     <h1 class="logo">GERMANO RANGEL</h1>
@@ -45,8 +49,26 @@
 
 <section id="contact" class="content">
     <h2>CONTATO</h2>
-    <a href="https://wa.me/5521964757223" target="_blank" class="btn">WHATSAPP</a>
+
+    <div class="contact-icons">
+
+        <a href="https://wa.me/552164757223" target="_blank" 
+           class="icon-btn" onclick="playClick()">
+            <span class="icon">📲</span>
+            <span class="label">WHATSAPP</span>
+        </a>
+
+        <a href="mailto:rantro.dev@outlook.com.br" 
+           class="icon-btn" onclick="playClick()">
+            <span class="icon">✉</span>
+            <span class="label">EMAIL</span>
+        </a>
+
+    </div>
 </section>
+
+<!-- SOM -->
+<audio id="click-sound" src="assets/click.wav.wav" preload="auto"></audio>
 
 <script src="script.js"></script>
 </body>
