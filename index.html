@@ -2,73 +2,62 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Germano Rangel | AAA Game Portfolio</title>
+<title>Germano Rangel | AAA Portfolio</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div id="loading-screen">
+<!-- PRELOADER -->
+<div id="preloader">
     <h1>INITIALIZING SYSTEM...</h1>
 </div>
 
-<div class="background">
-     <video autoplay muted loop>
-    <source src="assets/video.mp4" type="video/mp4">
-  </video>
-</div>
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
 
+<!-- BACKGROUND -->
+<div class="background"></div>
+
+<!-- MENU -->
 <nav class="menu">
     <h1 class="logo">GERMANO RANGEL</h1>
     <ul>
         <li onclick="openSection('portfolio')">▶ PORTFÓLIO</li>
         <li onclick="openSection('about')">▶ SOBRE</li>
-        <li onclick="openSection('projects')">▶ PROJETOS</li>
         <li onclick="openSection('contact')">▶ CONTATO</li>
     </ul>
 </nav>
 
+<!-- CONTENT -->
 <section id="portfolio" class="content">
-    <h2>PORTFÓLIO 3D</h2>
-    <div class="gallery">
-        <img src="assets/projeto1.jpg">
-        <img src="assets/projeto2.jpg">
-        <img src="assets/projeto3.jpg">
-    </div>
+    <h2>PORTFÓLIO</h2>
+    <p>Seus renders 3D aqui.</p>
 </section>
 
 <section id="about" class="content">
     <h2>SOBRE</h2>
-    <p>3D Artist & Gameplay Programmer focado em Unreal Engine, sistemas de combate e ambientes realistas.</p>
-</section>
-
-<section id="projects" class="content">
-    <h2>PROJETOS</h2>
-    <p>SWATCombat,<br> Sistemas de combate tático,<br> IA,<br> Ambientes imersivos.<br></p>
+    <p>3D Artist & Gameplay Programmer especializado em Unreal Engine.</p>
 </section>
 
 <section id="contact" class="content">
     <h2>CONTATO</h2>
-
-    <div class="contact-icons">
-
-        <a href="https://wa.me/552164757223" target="_blank" 
-           class="icon-btn" onclick="playClick()">
-            <span class="icon">📲</span>
-            <span class="label">WHATSAPP</span>
+    <div class="icon-btns">
+        <a href="https://wa.me/552164757223" target="_blank" class="icon-btn">
+            📲 WHATSAPP
         </a>
-
-        <a href="mailto:rantro.dev@outlook.com.br" 
-           class="icon-btn" onclick="playClick()">
-            <span class="icon">✉</span>
-            <span class="label">EMAIL</span>
+        <a href="mailto:rantro.dev@outlook.com.br" class="icon-btn">
+            ✉ EMAIL
         </a>
-
     </div>
 </section>
 
-<!-- SOM -->
-<audio id="click-sound" src="assets/click.wav.wav" preload="auto"></audio>
+<!-- AUDIO -->
+<audio id="click-sound" src="assets/click.wav"></audio>
+<audio id="hover-sound" src="assets/hover.wav"></audio>
+<audio id="ambient-sound" src="assets/ambient.wav" preload="auto" loop></audio>
+
+<button id="mute-btn">🔊</button>
 
 <script src="script.js"></script>
 </body>
