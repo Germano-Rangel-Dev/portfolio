@@ -62,7 +62,6 @@ Sculpt, lookdev and real-time integration.
 
 ## 📡 CONTACT
 
-📲 WhatsApp  
 ✉ rantro.dev@outlook.com.br  
 
 ---
